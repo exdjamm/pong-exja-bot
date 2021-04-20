@@ -1,6 +1,9 @@
 #!/bin/python3.8
 
+import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, filters
+
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
 help_msg = """Bot de pong
 
@@ -28,7 +31,7 @@ def on_message(update, context):
 
 ## Main 
 def main():
-    updater = Updater("BOT_TOKEN", use_context=True)
+    updater = Updater(BOT_TOKEN, use_context=True)
 
     dispatcher = updater.dispatcher
     dispatcher.add_handler(CommandHandler('help', command_help))
